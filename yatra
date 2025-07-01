@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Amarnath Yatra Live Streams</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #1c1c1c;
+      --text-color: #ffffff;
+      --accent-color: #00ffff;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 30px 20px 10px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      text-shadow: 0 0 10px var(--accent-color);
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .stream-btn {
+      background-color: transparent;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .stream-btn:hover {
+      background-color: var(--accent-color);
+      color: #000;
+    }
+
+    #stream-frame {
+      width: 90%;
+      max-width: 1000px;
+      height: 560px;
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+      margin-bottom: 40px;
+    }
+
+    footer {
+      color: #888;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      #stream-frame {
+        height: 300px;
+      }
+
+      .stream-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Amarnath Yatra Live Stream</h1>
+  </header>
+
+  <div class="button-group">
+    <button class="stream-btn" onclick="loadStream('baltalUp')">BALTAL UP</button>
+    <button class="stream-btn" onclick="loadStream('baltalDown')">BALTAL DOWN</button>
+    <button class="stream-btn" onclick="loadStream('pahalgamUp')">PAHALGAM UP</button>
+    <button class="stream-btn" onclick="loadStream('pahalgamDown')">PAHALGAM DOWN</button>
+  </div>
+
+  <iframe id="stream-frame" src="" allowfullscreen></iframe>
+
+  <footer>© 2025 Amarnath Yatra | Live Convoy Feeds</footer>
+
+  <script>
+    // 🔧 STREAM LINKS (change here to update backend)
+    const streams = {
+      baltalUp:     "https://www.youtube.com/embed/live_stream?channel=CHANNEL_ID_1",
+      baltalDown:   "https://www.youtube.com/embed/live_stream?channel=CHANNEL_ID_2",
+      pahalgamUp:   "https://www.youtube.com/embed/live_stream?channel=CHANNEL_ID_3",
+      pahalgamDown: "https://www.youtube.com/embed/live_stream?channel=CHANNEL_ID_4"
+    };
+
+    function loadStream(key) {
+      const iframe = document.getElementById("stream-frame");
+      iframe.src = streams[key];
+    }
+  </script>
+
+</body>
+</html>
